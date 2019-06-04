@@ -23,7 +23,7 @@
     <button v-if="isDataPresent" class="toggler" ></button>
   </div>
 
- <div class="treeViewer"> 
+ <div class="treeViewer" :class=" isCollapsed ? 'expanded':'collaged' " > 
    <vo-basic  v-if="isDataPresent" :key="componentKey" :data="chartDataJSON" :pan="true" :zoom="true"></vo-basic>
  </div>
 
@@ -151,6 +151,7 @@ export default {
 }
 .contentHolder.side{
   display:flex;
+  margin: 0px 20px;
 }
 .panBtn{
       width: 50px;
@@ -172,8 +173,10 @@ export default {
     overflow: hidden;
 }
 .searchForm.side{
-       box-shadow: 2px -1px 19px 14px #00800094;
       padding: 120px 0px;
+      margin: 30px 0px;
+      box-shadow: 2px -1px 20px 8px #00800094;
+      height:250px;
 }
 .searchForm.collapsed{     
     width: 0px;
@@ -201,6 +204,13 @@ export default {
     font-style: italic;
     color: #254b19d6;
     margin-bottom: 37px
+}
+.treeViewer{
+  width: 68%;
+}
+.treeViewer.expanded{
+  width: 90%;
+  margin: 0px auto;
 }
 /* button css */
 
